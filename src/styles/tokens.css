@@ -1,0 +1,153 @@
+/*
+ * Design tokens.
+ *
+ * Semantic variables are declared here as raw values and exposed to Tailwind
+ * through `@theme inline` in index.css. Components must reference the semantic
+ * names (surface, border, ink, accent, status-*) and never raw hex values, so
+ * that theming stays a single-file concern.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Canvas and surfaces */
+  --canvas: #f7f8f9;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-muted: #f2f4f6;
+  --surface-sunken: #eceff2;
+  --surface-inverse: #1b2227;
+
+  /* Borders — subtle by default, strong only for emphasis */
+  --border-subtle: #e7eaed;
+  --border: #dde1e6;
+  --border-strong: #c6ccd3;
+
+  /* Text */
+  --ink: #161d22;
+  --ink-secondary: #4b565f;
+  --ink-muted: #6d7883;
+  --ink-faint: #8b959e;
+  --ink-inverse: #f4f6f7;
+
+  /* Accent — deep, desaturated teal-slate. Deliberately not purple. */
+  --accent-50: #f0f5f7;
+  --accent-100: #dde9ee;
+  --accent-200: #bdd3dc;
+  --accent-300: #93b4c3;
+  --accent-400: #628da3;
+  --accent-500: #416e85;
+  --accent-600: #32596e;
+  --accent-700: #2a4859;
+  --accent-800: #253c4a;
+  --accent-900: #21333e;
+  --accent-950: #14212a;
+  --accent: var(--accent-600);
+  --accent-contrast: #ffffff;
+
+  /* Status — calm, low-chroma. No alarm-red walls. */
+  --status-ready-fg: #2c6a4f;
+  --status-ready-bg: #ecf3ef;
+  --status-ready-border: #cfe1d7;
+
+  --status-attention-fg: #866113;
+  --status-attention-bg: #faf4e6;
+  --status-attention-border: #ecdfc0;
+
+  --status-needs-fg: #95541f;
+  --status-needs-bg: #fbf1e8;
+  --status-needs-border: #eeddcb;
+
+  --status-blocked-fg: #92402f;
+  --status-blocked-bg: #faeeeb;
+  --status-blocked-border: #eed8d2;
+
+  --status-neutral-fg: #46545f;
+  --status-neutral-bg: #eef1f4;
+  --status-neutral-border: #dbe1e7;
+
+  --status-info-fg: #2c5566;
+  --status-info-bg: #eaf1f4;
+  --status-info-border: #cfdfe6;
+
+  /* Elevation — restrained. No glow. */
+  --shadow-xs: 0 1px 1px rgb(16 24 32 / 0.04);
+  --shadow-sm: 0 1px 2px rgb(16 24 32 / 0.05), 0 1px 1px rgb(16 24 32 / 0.03);
+  --shadow-md: 0 4px 12px -2px rgb(16 24 32 / 0.08), 0 2px 4px -2px rgb(16 24 32 / 0.04);
+  --shadow-lg: 0 12px 32px -8px rgb(16 24 32 / 0.14), 0 4px 8px -4px rgb(16 24 32 / 0.06);
+
+  /* Focus */
+  --focus-ring: var(--accent-500);
+
+  /* Layout */
+  --layout-content-max: 84rem;
+  --layout-nav-width: 15.5rem;
+  --layout-nav-width-collapsed: 4rem;
+  --layout-header-height: 3.5rem;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --canvas: #101519;
+  --surface: #161c21;
+  --surface-raised: #1a2126;
+  --surface-muted: #1e262c;
+  --surface-sunken: #12181c;
+  --surface-inverse: #eef1f3;
+
+  --border-subtle: #232c33;
+  --border: #2b353d;
+  --border-strong: #3a4650;
+
+  --ink: #e9edf0;
+  --ink-secondary: #b3bdc5;
+  --ink-muted: #8b969f;
+  --ink-faint: #6d7881;
+  --ink-inverse: #161d22;
+
+  --accent-50: #14212a;
+  --accent-100: #1b2d38;
+  --accent-200: #24404f;
+  --accent-300: #2f5b70;
+  --accent-400: #4c7d95;
+  --accent-500: #6b9cb3;
+  --accent-600: #8ab4c8;
+  --accent-700: #a8c9d9;
+  --accent-800: #c6dde7;
+  --accent-900: #e0eef4;
+  --accent-950: #f0f7fa;
+  --accent: var(--accent-500);
+  --accent-contrast: #0e161b;
+
+  --status-ready-fg: #8fc7ab;
+  --status-ready-bg: #17251e;
+  --status-ready-border: #273d33;
+
+  --status-attention-fg: #d8bd7c;
+  --status-attention-bg: #241f14;
+  --status-attention-border: #3c3524;
+
+  --status-needs-fg: #d9a377;
+  --status-needs-bg: #241b14;
+  --status-needs-border: #3d3024;
+
+  --status-blocked-fg: #d69e91;
+  --status-blocked-bg: #241816;
+  --status-blocked-border: #3d2a26;
+
+  --status-neutral-fg: #aab6c0;
+  --status-neutral-bg: #1c242a;
+  --status-neutral-border: #2d3840;
+
+  --status-info-fg: #9dc2d3;
+  --status-info-bg: #16222a;
+  --status-info-border: #273a45;
+
+  --shadow-xs: 0 1px 1px rgb(0 0 0 / 0.3);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.36), 0 1px 1px rgb(0 0 0 / 0.24);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.45), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 12px 32px -8px rgb(0 0 0 / 0.55), 0 4px 8px -4px rgb(0 0 0 / 0.35);
+
+  --focus-ring: var(--accent-500);
+}
