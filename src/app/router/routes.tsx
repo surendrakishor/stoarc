@@ -1,4 +1,8 @@
-import { createBrowserRouter, type RouteObject } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createHashRouter,
+  type RouteObject,
+} from 'react-router-dom';
 import { AppShell } from '@/components/layout';
 import {
   ArbCalendarPage,
@@ -90,4 +94,13 @@ export const routes: RouteObject[] = [
   },
 ];
 
-export const router = createBrowserRouter(routes);
+/**
+ * Hash routing is used only for static preview builds, where there is no
+ * server to rewrite unknown paths back to index.html. The application itself
+ * uses ordinary paths; set VITE_ROUTER=hash at build time to opt in.
+ */
+const useHashRouting = import.meta.env.VITE_ROUTER === 'hash';
+
+export const router = useHashRouting
+  ? createHashRouter(routes)
+  : createBrowserRouter(routes);

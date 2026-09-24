@@ -41,6 +41,19 @@ npm run preview    # serve the production build
 
 Requires Node 20.19+ or 22.12+.
 
+### Static preview build
+
+To produce a bundle that runs from any static host or subpath — no server-side
+URL rewriting required:
+
+```bash
+VITE_ROUTER=hash VITE_BASE=./ npm run build -- --outDir dist-preview
+```
+
+`VITE_ROUTER=hash` switches the router to hash URLs (`/#/architectures`) so
+deep links resolve without a rewrite rule. The application's own build is
+unaffected and keeps ordinary paths.
+
 ## Architecture
 
 ```
